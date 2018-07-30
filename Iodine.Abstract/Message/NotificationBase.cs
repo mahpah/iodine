@@ -1,4 +1,7 @@
-﻿namespace Iodine.Abstract.Message
+﻿using System;
+using System.Globalization;
+
+namespace Iodine.Abstract.Message
 {
     public abstract class NotificationBase
     {
@@ -6,7 +9,16 @@
 
         public string EventId { get; set; }
 
-        public int Timestamp { get; set; }
+        public string Timestamp { get; set; } = DateTimeOffset.UtcNow.ToUnixTimestamp();
+    }
+
+    public static class TimeHelper
+    {
+        public static string ToUnixTimestamp(this DateTimeOffset dateTimeOffset)
+        {
+            var a = dateTimeOffset.Subtract(new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.FromMilliseconds(0)));
+            return ((int) a.TotalSeconds).ToString(CultureInfo.InvariantCulture);
+        }
     }
 
     public abstract class NotificationBase<T> : NotificationBase

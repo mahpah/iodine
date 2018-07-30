@@ -32,7 +32,9 @@ namespace Iodine.Infrastructure.Amqp
 
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings()
         {
-            ContractResolver = new CamelCasePropertyNamesContractResolver()
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            DateFormatHandling = DateFormatHandling.IsoDateFormat,
+            DateTimeZoneHandling = DateTimeZoneHandling.Utc,
         };
 
         public RabbitMessageDispatcher(

@@ -22,12 +22,15 @@ namespace Iodine.TestClient
 
         private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings()
         {
-            ContractResolver = new CamelCasePropertyNamesContractResolver()
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
         };
 
         public RpcClient()
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+            };
 
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
