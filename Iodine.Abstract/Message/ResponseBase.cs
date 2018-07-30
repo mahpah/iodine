@@ -1,4 +1,6 @@
-﻿namespace Iodine.Abstract.Message
+﻿using System;
+
+namespace Iodine.Abstract.Message
 {
     public abstract class ResponseBase
     {
@@ -34,7 +36,7 @@
         public string DeviceType {get; set;}
         public string ConnectedGateway {get; set;}
         public string Status {get; set;}
-        public string LastUpdate {get; set;}
+        public DateTimeOffset LastUpdate {get; set;}
     }
 
     public class PingResponse : ResponseBase<PingResponeData>

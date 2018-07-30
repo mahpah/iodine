@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Iodine.Abstract.Application;
 using Iodine.Abstract.Message;
+using Iodine.CronJobs.DI;
+using Iodine.CronJobs.Jobs;
+using Iodine.CronJobs.Scheduler;
 using Iodine.Infrastructure.Amqp.Abstracts;
 using Iodine.Infrastructure.Amqp.DependencyInjection;
 using Iodine.Infrastructure.Data;
@@ -10,8 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Npgsql;
 
 namespace Iodine
@@ -35,7 +37,7 @@ namespace Iodine
 
             var requestHandlerManager = host.Services.GetRequiredService<IRequestHandlerManager>();
             host.Services.GetRequiredService<IAmqpConnection>();
-            host.Services.GetRequiredService<IRpcDispatcher>();
+            host.Services.GetRequiredService<IMessageDispatcher>();
             requestHandlerManager.AddSubscription<PingRequest, PingRequestHandler, PingResponse>();
 
             await host.RunAsync();
@@ -60,6 +62,12 @@ namespace Iodine
             });
 
             services.AddSingleton<IHostedService, IodineServer>();
+            services.AddSingleton<IScheduledTask, UpdateDeviceStatus>();
+            services.AddScheduler((sender, args) =>
+            {
+                Console.Write(args.Exception.Message);
+                args.SetObserved();
+            });
         }
     }
 }

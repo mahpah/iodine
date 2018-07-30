@@ -9,6 +9,9 @@ namespace Iodine.Infrastructure.Setup
     {
         public static readonly string[] GatewayStatuses = { "connected", "warn", "error" };
 
+        public static readonly string[] DeviceTypes =
+            {"alarmbell", "directionlight", "primaryalarmbell", "smokedetector", "station"};
+
         public static Gateway[] Gateways = Enumerable.Range(1, 100).Select(index => new Gateway()
         {
             SerialNumber = string.Format("gw-{0:000000}", index),
@@ -18,7 +21,7 @@ namespace Iodine.Infrastructure.Setup
 
         public static ConnectedDevice[] ConnectedDevices = Enumerable.Range(1, 1000).Select(index =>
         {
-            var type = Utils.Rand("alarmbell", "directionlight", "primaryalarmbell", "smokedetector", "station");
+            var type = Utils.Rand(DeviceTypes);
             var id = Utils.Rand(1, 103);
             var gId = id < 100 ? string.Format("gw-{0:000000}", id) : null;
 

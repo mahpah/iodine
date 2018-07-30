@@ -17,6 +17,8 @@ namespace Iodine.Infrastructure.Amqp.DependencyInjection
             public string UserName { get; set; } = "guest";
             public string Password { get; set; } = "guest";
             public int Retry { get; set; } = 5;
+            public string RpcQueueName { get; set; } = "rpc_queue";
+            public string EventBusQueueName { get; set; } = "event_bus";
         }
 
         public static void AddRabbitRpc(this IServiceCollection services, IConfiguration configuration)
@@ -38,13 +40,19 @@ namespace Iodine.Infrastructure.Amqp.DependencyInjection
             });
 
             services.AddSingleton<IRequestHandlerManager, InMemoryRequestHandlerManager>();
-            services.AddSingleton<IRpcDispatcher, RabbitRpcDispatcher>(sp =>
+            services.AddSingleton<IMessageDispatcher, RabbitMessageDispatcher>(serviceProvider =>
             {
-                var connection = sp.GetRequiredService<IAmqpConnection>();
-                var logger = sp.GetRequiredService<ILogger<RabbitRpcDispatcher>>();
+                var connection = serviceProvider.GetRequiredService<IAmqpConnection>();
+                var logger = serviceProvider.GetRequiredService<ILogger<RabbitMessageDispatcher>>();
                 var retryCount = connectionConfig.Retry;
-                var subManager = sp.GetRequiredService<IRequestHandlerManager>();
-                return new RabbitRpcDispatcher(connection, logger, sp, subManager, retryCount);
+                var subManager = serviceProvider.GetRequiredService<IRequestHandlerManager>();
+                return new RabbitMessageDispatcher(
+                    persistentConnection: connection,
+                    logger: logger,
+                    serviceProvider: serviceProvider,
+                    handlerManager: subManager,
+                    rpcQueueName: connectionConfig.RpcQueueName,
+                    retryCount: retryCount);
             });
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Text;
 using Iodine.Abstract.Message;
 using Newtonsoft.Json;
@@ -49,7 +50,7 @@ namespace Iodine.TestClient
             };
         }
 
-        public ResponseBase Call(RequestBase request)
+        public T Call<T>(RequestBase request) where T : ResponseBase
         {
             var str = JsonConvert.SerializeObject(request, JsonSettings);
             var messageBytes = Encoding.UTF8.GetBytes(str);
@@ -65,7 +66,7 @@ namespace Iodine.TestClient
                 autoAck: true);
 
             var responseString = respQueue.Take();
-            return JsonConvert.DeserializeObject<Response>(responseString, JsonSettings);
+            return JsonConvert.DeserializeObject<T>(responseString, JsonSettings);
         }
 
         public void Close()
@@ -81,17 +82,21 @@ namespace Iodine.TestClient
 
     public class Client
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
             var rpcClient = new RpcClient();
 
-            Console.WriteLine(" [x] Requesting fib(30)");
-            var response = rpcClient.Call(new PingRequest
+            foreach (var arg in args.Skip(1))
             {
-                DeviceSerial = "afasf"
-            });
+                Console.WriteLine(" [x] Ping {0}", arg);
 
-            Console.WriteLine(" [.] Got '{0}'", response.ToString());
+                var response = rpcClient.Call<PingResponse>(new PingRequest
+                {
+                    DeviceSerial = arg
+                });
+                Console.WriteLine(" [{0}] Got '{1}'", response.Success ? "S" : "E", response.Success ? response.Data.Status : "---");
+            }
+
             rpcClient.Close();
         }
     }

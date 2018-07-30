@@ -21,10 +21,16 @@
         public string DeviceType { get; set; }
     }
 
+    public class FireAlarmNotification : NotificationBase<FireAlarmNotificationData> {}
+
     public class FireAlarmCanceledNotificationData
     {
         public string InitializingDevice { get; set; }
         public string Gateway { get; set; }
         public string DeviceType { get; set; }
     }
+
+    public class FireAlarmCanceledNotification : NotificationBase<FireAlarmCanceledNotificationData> {}
+
+    public class DeviceStatusUpdatedNotification : NotificationBase<PingResponeData> {}
 }

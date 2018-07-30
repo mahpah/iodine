@@ -6,4 +6,4 @@
 /home/mahpah/repo/fire/iodine/iodine/Iodine.Abstract/obj/Debug/netcoreapp2.1/Iodine.Abstract.AssemblyInfo.cs
 /home/mahpah/repo/fire/iodine/iodine/Iodine.Abstract/obj/Debug/netcoreapp2.1/Iodine.Abstract.dll
 /home/mahpah/repo/fire/iodine/iodine/Iodine.Abstract/obj/Debug/netcoreapp2.1/Iodine.Abstract.pdb
-/home/mahpah/repo/fire/iodine/iodine/Iodine.Abstract/obj/Debug/netcoreapp2.1/Iodine.Abstract.csprojResolveAssemblyReference.cache
+/home/mahpah/repo/fire/iodine/iodine/Iodine.Abstract/obj/Debug/netcoreapp2.1/Iodine.Abstract.csprojAssemblyReference.cache

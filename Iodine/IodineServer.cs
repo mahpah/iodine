@@ -1,7 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Iodine.Abstract.Application;
 using Iodine.Abstract.Message;
+using Iodine.CronJobs;
 using Iodine.Infrastructure.Amqp.Abstracts;
 using Iodine.Infrastructure.Data;
 using Iodine.RequestHandlers;
@@ -19,7 +22,10 @@ namespace Iodine
         private readonly IOptions<AppConfig> _appConfig;
         private readonly IRequestHandlerManager _requestHandlerManager;
 
-        public IodineServer(IodineDbContext db, ILogger<IodineServer> logger, IOptions<AppConfig> appConfig, IRequestHandlerManager requestHandlerManager)
+        public IodineServer(IodineDbContext db,
+            ILogger<IodineServer> logger,
+            IOptions<AppConfig> appConfig,
+            IRequestHandlerManager requestHandlerManager)
         {
             _db = db;
             _logger = logger;
@@ -30,7 +36,6 @@ namespace Iodine
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Starting service....");
-
             await _db.Database.MigrateAsync(cancellationToken);
         }
 

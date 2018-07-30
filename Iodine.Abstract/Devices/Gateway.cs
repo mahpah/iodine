@@ -10,5 +10,7 @@
         public string GatewayId { get; set; }
 
         public virtual Gateway Gateway { get; set; }
+
+        public string Status { get; set; } = "working";
     }
 }

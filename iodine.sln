@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.Infrastructure", "Io
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.TestClient", "Iodine.TestClient\Iodine.TestClient.csproj", "{A7BBE705-3E39-4102-BD14-D85F48DE2F17}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EC8902A7-8890-4680-A72F-7F4420C8194C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.TestNotificationConsumer", "Iodine.TestNotificationConsumer\Iodine.TestNotificationConsumer.csproj", "{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7BBE705-3E39-4102-BD14-D85F48DE2F17} = {EC8902A7-8890-4680-A72F-7F4420C8194C}
+		{3A7D56EB-94CE-4524-8D9F-CCEA403C50BD} = {EC8902A7-8890-4680-A72F-7F4420C8194C}
 	EndGlobalSection
 EndGlobal
