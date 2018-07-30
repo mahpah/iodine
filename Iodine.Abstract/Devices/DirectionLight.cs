@@ -2,6 +2,6 @@
 {
     public class DirectionLight : ConnectedDevice
     {
-        public string Status { get; set; }
+        public override string Status { get; set; }
     }
 }

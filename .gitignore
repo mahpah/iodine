@@ -276,3 +276,5 @@ logs
 scorm-packages
 /src/application/Eln.Application.Api/logs/nlog-internal.txt
 
+obj
+bin

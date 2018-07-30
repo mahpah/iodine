@@ -2,6 +2,6 @@
 {
     public class PrimaryAlarmBell : ConnectedDevice
     {
-        public string Status { get; set; }
+        public override string Status { get; set; }
     }
 }

@@ -11,6 +11,6 @@
 
         public virtual Gateway Gateway { get; set; }
 
-        public string Status { get; set; } = "working";
+        public virtual string Status { get; set; } = "working";
     }
 }

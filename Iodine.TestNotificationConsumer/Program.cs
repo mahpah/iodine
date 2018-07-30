@@ -13,12 +13,26 @@ namespace Iodine.TestNotificationConsumer
 
         static void Main(string[] args)
         {
-            DoSubscribe();
+            if (!int.TryParse(args[2], out var port))
+                port = 5672;
+
+            DoSubscribe(
+                hostName: args[1],
+                port: port,
+                userName: args[3],
+                password:args[4]);
         }
 
-        private static void DoSubscribe()
+        private static void DoSubscribe(string hostName, int port, string userName, string password)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            Console.WriteLine("Connect to {0}, {1}, {2}, {3}", hostName, port, userName, password);
+            var factory = new ConnectionFactory()
+            {
+                HostName = hostName,
+                Port = port,
+                UserName = userName,
+                Password = password
+            };
             using(var connection = factory.CreateConnection())
             using(var channel = connection.CreateModel())
             {

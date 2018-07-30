@@ -42,13 +42,17 @@ namespace Iodine.CronJobs.Jobs
 
             foreach (var device in current)
             {
-                device.Status = devices.FirstOrDefault(t => t.SerialNumber == device.SerialNumber)?.Status ?? "error";
+                var updated = devices.FirstOrDefault(t => t.SerialNumber == device.SerialNumber);
+                device.Status = device?.Status ?? "error";
+                device.LastHeartbeat = device.LastHeartbeat;
+                device.LastUpdated = device.LastUpdated;
                 notis.Add(new DeviceStatusUpdatedNotification()
                 {
                     Data = new PingResponeData()
                     {
                         DeviceSerial = device.SerialNumber,
                         Status = device.Status,
+                        LastUpdate = device.LastHeartbeat,
                     }
                 });
             }
