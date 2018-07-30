@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine", "Iodine\Iodine.csproj", "{68A75BDE-5445-4E2F-8081-A525C6DCEB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.Abstract", "Iodine.Abstract\Iodine.Abstract.csproj", "{0CEF5A99-6681-4411-9ADC-2D15869CD1D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.Infrastructure", "Iodine.Infrastructure\Iodine.Infrastructure.csproj", "{33575D5F-4848-446E-BF03-7CA430675B14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iodine.TestClient", "Iodine.TestClient\Iodine.TestClient.csproj", "{A7BBE705-3E39-4102-BD14-D85F48DE2F17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68A75BDE-5445-4E2F-8081-A525C6DCEB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A75BDE-5445-4E2F-8081-A525C6DCEB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A75BDE-5445-4E2F-8081-A525C6DCEB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A75BDE-5445-4E2F-8081-A525C6DCEB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEF5A99-6681-4411-9ADC-2D15869CD1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEF5A99-6681-4411-9ADC-2D15869CD1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEF5A99-6681-4411-9ADC-2D15869CD1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEF5A99-6681-4411-9ADC-2D15869CD1D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33575D5F-4848-446E-BF03-7CA430675B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33575D5F-4848-446E-BF03-7CA430675B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33575D5F-4848-446E-BF03-7CA430675B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33575D5F-4848-446E-BF03-7CA430675B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BBE705-3E39-4102-BD14-D85F48DE2F17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

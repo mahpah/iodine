@@ -1,0 +1,16 @@
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.deps.json
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.runtimeconfig.json
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.runtimeconfig.dev.json
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.dll
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.pdb
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.Infrastructure.dll
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.Infrastructure.pdb
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.csproj.CoreCompileInputs.cache
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.AssemblyInfoInputs.cache
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.AssemblyInfo.cs
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.dll
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.pdb
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/appsettings.json
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.Abstract.dll
+/home/mahpah/repo/fire/iodine/iodine/Iodine/bin/Debug/netcoreapp2.1/Iodine.Abstract.pdb
+/home/mahpah/repo/fire/iodine/iodine/Iodine/obj/Debug/netcoreapp2.1/Iodine.csprojResolveAssemblyReference.cache
