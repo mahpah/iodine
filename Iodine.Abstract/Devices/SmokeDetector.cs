@@ -2,6 +2,5 @@
 {
     public class SmokeDetector : ConnectedDevice
     {
-        public override string Status { get; set; }
     }
 }

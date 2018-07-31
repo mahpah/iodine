@@ -34,18 +34,4 @@ namespace Iodine.Infrastructure.Setup
             };
         }).ToArray();
     }
-
-    public static class Utils
-    {
-        public static int Rand(int from, int to)
-        {
-            var gen = new Random();
-            return gen.Next(from, to);
-        }
-
-        public static string Rand(params string[] sources)
-        {
-            return sources[Rand(0, sources.Length - 1)];
-        }
-    }
 }

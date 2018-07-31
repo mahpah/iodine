@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Iodine.Abstract.Exceptions;
 using Iodine.Abstract.Message;
 using Iodine.Infrastructure.Amqp.Abstracts;
+using Iodine.Infrastructure.Setup;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -190,7 +192,7 @@ namespace Iodine.Infrastructure.Amqp
 
             using (var channel = _persistentConnection.CreateModel())
             {
-                var eventName = @event.GetType().Name;
+                var eventName = GetEventKey(@event);
 
                 channel.ExchangeDeclare(exchange: _brokerName, type: "direct");
                 channel.QueueBind(queue: _eventQueueName, exchange: _brokerName, routingKey: eventName);
@@ -209,6 +211,12 @@ namespace Iodine.Infrastructure.Amqp
                         body: body);
                 });
             }
+        }
+
+        private static readonly Regex SuffixRegex = new Regex(@"Notification$");
+        private static string GetEventKey<T>(T @event) where T:NotificationBase
+        {
+            return SuffixRegex.Replace(@event.GetType().Name.ToCamelCasing(), string.Empty);
         }
 
         private async Task<ResponseBase> ProcessEvent(string message)

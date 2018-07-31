@@ -19,13 +19,29 @@ namespace Iodine.RequestHandlers
 
         public async Task<PingResponse> Handle(PingRequest request)
         {
-            var device = await _db.Set<ConnectedDevice>().FirstOrDefaultAsync(t => t.SerialNumber == request.DeviceSerial);
+            var deviceBase = await _db.Set<DeviceBase>().FirstOrDefaultAsync(t => t.SerialNumber == request.DeviceSerial);
 
-            if (device == null)
+            if (deviceBase == null)
             {
                 throw new PlatformError(404, "device not found");
             }
 
+            if (deviceBase.Type == "gateway")
+            {
+                var gateway = await _db.Set<Gateway>().FirstOrDefaultAsync(t => t.SerialNumber == request.DeviceSerial);
+                return new PingResponse()
+                {
+                    Success = true,
+                    Data = new PingResponeData()
+                    {
+                        DeviceSerial = request.DeviceSerial,
+                        Status = gateway.Status,
+                        LastUpdate = gateway.LastUpdated,
+                    }
+                };
+            }
+
+            var device = await _db.Set<ConnectedDevice>().FirstOrDefaultAsync(t => t.SerialNumber == request.DeviceSerial);
             return new PingResponse()
             {
                 Success = true,
