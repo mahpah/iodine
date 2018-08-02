@@ -37,6 +37,7 @@ namespace Iodine.RequestHandlers
                         DeviceSerial = gateway.SerialNumber,
                         Status = gateway.Status,
                         LastUpdate = gateway.LastUpdated,
+                        DeviceType = "gateway"
                     }
                 };
             }
@@ -51,6 +52,7 @@ namespace Iodine.RequestHandlers
                     Status = device.Status,
                     LastUpdate = device.LastUpdated,
                     ConnectedGateway = device.GatewayId,
+                    DeviceType = device.Type
                 }
             };
         }
