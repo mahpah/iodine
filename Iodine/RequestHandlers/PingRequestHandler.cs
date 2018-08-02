@@ -34,7 +34,7 @@ namespace Iodine.RequestHandlers
                     Success = true,
                     Data = new PingResponeData()
                     {
-                        DeviceSerial = request.DeviceSerial,
+                        DeviceSerial = gateway.SerialNumber,
                         Status = gateway.Status,
                         LastUpdate = gateway.LastUpdated,
                     }

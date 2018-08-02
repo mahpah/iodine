@@ -63,6 +63,7 @@ namespace Iodine
 
             services.AddSingleton<IHostedService, IodineServer>();
             services.AddSingleton<IScheduledTask, UpdateDeviceStatus>();
+            services.AddSingleton<IScheduledTask, UpdateGatewayStatus>();
             services.AddScheduler((sender, args) =>
             {
                 Console.Write(args.Exception.Message);

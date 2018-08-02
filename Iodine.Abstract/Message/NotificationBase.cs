@@ -45,4 +45,5 @@ namespace Iodine.Abstract.Message
     public class FireAlarmCanceledNotification : NotificationBase<FireAlarmCanceledNotificationData> {}
 
     public class DeviceStatusUpdatedNotification : NotificationBase<PingResponeData> {}
+    public class GatewayStatusUpdatedNotification : NotificationBase<PingResponeData> {}
 }

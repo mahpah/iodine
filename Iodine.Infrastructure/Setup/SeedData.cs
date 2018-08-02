@@ -7,7 +7,7 @@ namespace Iodine.Infrastructure.Setup
 {
     public class SeedData
     {
-        public static readonly string[] GatewayStatuses = { "connected", "warn", "error" };
+        public static readonly string[] GatewayStatuses = { "connected", "warn", "error", "disconnected" };
 
         public static readonly string[] DeviceTypes =
             {"alarmbell", "directionlight", "primaryalarmbell", "smokedetector", "station"};
