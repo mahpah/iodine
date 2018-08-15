@@ -10,7 +10,7 @@ namespace Iodine.Infrastructure.Setup
         public static readonly string[] GatewayStatuses = { "connected", "warn", "error", "disconnected" };
 
         public static readonly string[] DeviceTypes =
-            {"alarmbell", "directionlight", "primaryalarmbell", "smokedetector", "station"};
+            {"alarmbell", "directionlight", "primaryalarmbell", "smokedetector", "station", "sprinkler"};
 
         public static Gateway[] Gateways = Enumerable.Range(1, 100).Select(index => new Gateway()
         {
@@ -19,19 +19,22 @@ namespace Iodine.Infrastructure.Setup
             LastHeartbeat = DateTimeOffset.Now,
         }).ToArray();
 
-        public static ConnectedDevice[] ConnectedDevices = Enumerable.Range(1, 1000).Select(index =>
+        public static ConnectedDevice[] ConnectedDevices = Enumerable.Range(1, 1000).SelectMany(index =>
         {
-            var type = Utils.Rand(DeviceTypes);
-            var id = Utils.Rand(1, 103);
-            var gId = id < 100 ? string.Format("gw-{0:000000}", id) : null;
-
-            return new ConnectedDevice()
+            return  DeviceTypes.Select(type =>
             {
-                Type = type,
-                SerialNumber = string.Format("{0}-{1:000000}", type.Substring(0, 2), index),
-                LastHeartbeat = DateTimeOffset.Now,
-                GatewayId = gId,
-            };
+                var id = Utils.Rand(1, 103);
+                var gId = id < 100 ? string.Format("gw-{0:000000}", id) : null;
+
+                return new ConnectedDevice()
+                {
+                    Status = "connected",
+                    Type = type,
+                    SerialNumber = string.Format("{0}-{1:000000}", type.Substring(0, 2), index),
+                    LastHeartbeat = DateTimeOffset.Now,
+                    GatewayId = gId,
+                };
+            });
         }).ToArray();
     }
 }

@@ -27,7 +27,8 @@ namespace Iodine.Infrastructure.Data
                 .HasValue<Gateway>(nameof(Gateway).ToLowerInvariant())
                 .HasValue<PrimaryAlarmBell>(nameof(PrimaryAlarmBell).ToLowerInvariant())
                 .HasValue<SmokeDetector>(nameof(SmokeDetector).ToLowerInvariant())
-                .HasValue<Station>(nameof(Station).ToLowerInvariant());
+                .HasValue<Station>(nameof(Station).ToLowerInvariant())
+                .HasValue<Sprinkler>(nameof(Sprinkler).ToLowerInvariant());
 
             modelBuilder.Entity<ConnectedDevice>()
                 .HasOne(t => t.Gateway)
